@@ -53,7 +53,7 @@ Each instance includes:
 FinChain covers 54 financial topics across 12 domains:
 
 <p align="center">
-  <img src="assets/taxonomy.png" width="650"/>
+  <img src="assets/taxonomy.png" width="3000"/>
 </p>
 
 Domains include:
