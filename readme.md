@@ -109,7 +109,25 @@ Evaluate predictions (scripts coming soon):
 python eval/eval_chain.py --pred path/to/your_outputs.jsonl
 ```
 
+## 💬 Feedback & Contributions
+
+**FinChain is an ongoing project**, and we’re continuously working to expand its coverage, refine evaluation metrics, and improve data quality. We **welcome feedback, suggestions, and community contributions**—whether it's about financial domains we missed, new evaluation ideas, or improving symbolic template diversity. If you're interested in collaborating or contributing, feel free to open an issue or contact us directly.
+
 ## 📄 Citation
+
+If you find **FinChain** useful in your research, please consider citing our paper:
+
+```bibtex
+
+@article{xie2025finchain,
+  title={FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning},
+  author={Xie, Zhuohan and Sahnan, Dhruv and Banerjee, Debopriyo and Georgiev, Georgi and Thareja, Rushil and Madmoun, Hachem and Su, Jinyan and Singh, Aaryamonvikram and Wang, Yuxia and Xing, Rui and Koto, Fajri and Li, Haonan and Koychev, Ivan and Chakraborty, Tanmoy and Lahlou, Salem and Stoyanov, Veselin and Nakov, Preslav},
+  journal={arXiv preprint arXiv:2506.02515},
+  year={2025}
+}
+
+
+```
 
 
 ## 👥 Authors
