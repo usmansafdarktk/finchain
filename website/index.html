@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FINCHAIN: Verifiable Chain-of-Thought Financial Reasoning</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <img
+          class="hero__logo"
+          src="../assets/logo.png"
+          alt="FinChain logo"
+        />
+        <h1>FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning</h1>
+        <p class="hero__authors">
+          Zhuohan Xie<sup>1</sup>, Dhruv Sahnan<sup>1</sup>, Debopriyo Banerjee<sup>1</sup>, Georgi Georgiev<sup>2</sup>,
+          Rushil Thareja<sup>1</sup>, Hachem Madmoun<sup>3</sup>, Jinyan Su<sup>4</sup>, Aaryamonvikram Singh<sup>1,5</sup>,
+          Yuxia Wang<sup>1</sup>, Rui Xing<sup>1</sup>, Fajri Koto<sup>1</sup>, Haonan Li<sup>1</sup>, Ivan Koychev<sup>2</sup>,
+          Tanmoy Chakraborty<sup>5</sup>, Salem Lahlou<sup>1</sup>, Veselin Stoyanov<sup>1</sup>, Preslav Nakov<sup>1</sup>
+        </p>
+        <p class="hero__affiliations">
+          <span><sup>1</sup>MBZUAI, UAE</span>
+          <span><sup>2</sup>FMI, Sofia University, Bulgaria</span>
+          <span><sup>3</sup>Quantsquare, France</span>
+          <span><sup>4</sup>Cornell University, USA</span>
+          <span><sup>5</sup>SIIT Delhi, India</span>
+        </p>
+        <div class="hero__cta">
+          <a class="button" href="#abstract">Read the abstract</a>
+          <a class="button button--secondary" href="#bibtex">BibTeX</a>
+        </div>
+      </div>
+      <div class="hero__media card">
+        <img src="../assets/example1.png" alt="Preview of the FinChain application" />
+        <p class="card__caption">Interactive preview of the FINCHAIN application.</p>
+      </div>
+    </header>
+
+    <main>
+      <section id="abstract" class="section">
+        <h2>Abstract</h2>
+        <p>
+          Multi-step symbolic reasoning is essential for robust financial analysis; yet, current benchmarks largely overlook this capability.
+          Existing datasets such as FinQA and ConvFinQA emphasize final numerical answers while neglecting the intermediate reasoning required
+          for transparency and verification. To address this gap, we introduce FINCHAIN, the first benchmark specifically designed for verifiable
+          Chain-of-Thought (CoT) evaluation in finance. FINCHAIN spans 58 topics across 12 financial domains, each represented by parameterized
+          symbolic templates with executable Python traces that enable fully machine-verifiable reasoning and scalable, contamination-free data
+          generation. To assess reasoning capacity, we propose CHAINEVAL, a dynamic alignment metric that jointly evaluates both the final-answer
+          correctness and the step-level reasoning consistency. Evaluating 23 leading LLMs reveals that even frontier proprietary systems exhibit
+          clear limitations in symbolic financial reasoning, while domain-adapted and math-enhanced fine-tuned models substantially narrow this
+          gap. Overall, FINCHAIN exposes persistent weaknesses in multi-step financial reasoning and provides a foundation for developing
+          trustworthy, interpretable, and verifiable financial AI.
+        </p>
+      </section>
+
+      <section id="taxonomy" class="section section--alt">
+        <div class="section__header">
+          <h2>FINCHAIN Taxonomy</h2>
+          <p>FINCHAIN&apos;s comprehensive taxonomy covers 12 financial domains and 58 distinct topics.</p>
+        </div>
+        <div class="section__media">
+          <img src="../assets/taxonomy.png" alt="FINCHAIN taxonomy diagram" />
+        </div>
+      </section>
+
+      <section id="overview" class="section">
+        <h2>Overview and Components</h2>
+        <p>
+          The benchmark is built upon a comprehensive financial taxonomy of 58 distinct topics across 12 financial domains. For each topic, we
+          developed five parameterized templates of varying complexity (two easy, two intermediate, and one advanced). This tiered structure is
+          designed to systematically evaluate how a model&apos;s reasoning capabilities hold up as the number of required steps and the depth of
+          financial knowledge increase.
+        </p>
+        <p>
+          Each template generates problems with symbolic variables and includes an executable Python code trace for the entire solution. This
+          design is crucial as it ensures full machine-verifiability, allowing every intermediate calculation to be automatically checked to
+          instantly detect flawed or incomplete reasoning.
+        </p>
+        <p>
+          To guarantee the highest quality and professional accuracy, every template underwent a rigorous multi-stage verification process led by
+          a team of ten financial experts from both industry and academia. Templates were reviewed for financial logic, mathematical correctness,
+          and clarity, with issues flagged for correction through a structured annotation workflow. This meticulous human-in-the-loop process
+          surfaced and resolved issues in 10% of the initial templates.
+        </p>
+      </section>
+
+      <section id="example" class="section section--alt">
+        <div class="section__header">
+          <h2>Symbolic Template Example</h2>
+          <p>Figure 2: Symbolic template for generating compound interest problems.</p>
+        </div>
+        <div class="card section__media">
+          <img src="../assets/example1.png" alt="Example symbolic template" />
+        </div>
+      </section>
+
+      <section id="chaineval" class="section">
+        <h2>The CHAINEVAL Evaluation Framework</h2>
+        <p>
+          To enable a rigorous and holistic evaluation, we propose CHAINEVAL, a framework that assesses model outputs on two critical axes: the
+          correctness of the final answer and the faithfulness of the intermediate reasoning steps. At its core, CHAINEVAL uses Dynamic Time
+          Warping (DTW), an algorithm that finds the optimal alignment between the sequence of steps in a model&apos;s solution and the ground-truth trace.
+        </p>
+        <p>
+          The quality of the alignment is driven by a gated score calculated for each pair of steps. A generated step must align semantically with
+          the gold step and produce the correct intermediate numerical result (within a 5% tolerance) to receive credit. This strict requirement
+          ensures that fluent but incorrect reasoning is not rewarded, yielding a single holistic measure of reasoning coherence.
+        </p>
+      </section>
+
+      <section id="results" class="section section--alt">
+        <h2>Results</h2>
+        <p>
+          Our experiments on 23 LLMs reveal a clear performance hierarchy. Frontier proprietary systems like Gemini 2.5 Pro and GPT-5 consistently
+          achieve the highest accuracy across domains and difficulty tiers. Domain-specific models such as Fin-R1 and math-enhanced models like
+          Mathstral close the gap substantially, occasionally outperforming larger systems in specialized areas.
+        </p>
+        <p>
+          Despite these gains, all models struggle as task complexity increases. Performance degradation is particularly sharp for smaller,
+          fine-tuned models, highlighting persistently unsolved challenges in multi-step symbolic financial reasoning.
+        </p>
+      </section>
+
+      <section id="application" class="section">
+        <h2>Application Preview</h2>
+        <p>
+          The FINCHAIN application provides an interactive interface to explore the benchmark. Users can generate unique question-answer pairs
+          from the library of predefined templates, then pass each question to a language model to test its reasoning capabilities. The interface
+          supports side-by-side comparison of generated solutions against verifiable benchmark traces.
+        </p>
+      </section>
+
+      <section id="bibtex" class="section section--alt">
+        <h2>BibTeX</h2>
+        <pre class="bibtex">@article{xie2025finchain,
+  title={FINCHAIN: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning},
+  author={Xie, Zhuohan and Orel, Daniil and Thareja, Rushil and Sahnan, Dhruv and Madmoun, Hachem and Zhang, Fan and Banerjee, Debopriyo and Georgiev, Georgi and Peng, Xueqing and Qian, Lingfei and others},
+  journal={arXiv preprint},
+  year={2025}
+}</pre>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Website template inspired by the Nerfies project page. Last updated 2025.</p>
+    </footer>
+  </body>
+</html>
