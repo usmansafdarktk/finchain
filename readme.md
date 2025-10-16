@@ -1,6 +1,6 @@
 <p align="center">
   <img src="assets/logo.png" width="200"/>
-</p>
+
 
 <h1 align="center">FinChain</h1>
 <p align="center"><em>A Symbolic Benchmark for Verifiable Chain-of-Thought
@@ -10,6 +10,8 @@ Financial Reasoning</em></p>
 <a href='https://mbzuai-nlp.github.io/finchain/'><img src='https://img.shields.io/badge/project-Page-green'></a> &nbsp;
 <a href='https://mbzuai-nlp.github.io/finchain/leaderboard.html'><img src='https://img.shields.io/badge/leaderboard-Page-blue'></a> &nbsp;
 <a href='https://huggingface.co/spaces/Usmansafder/finchain-space'><img src='https://img.shields.io/badge/demo-Spaces-yellow'></a> &nbsp;
+
+</p>
 
 ---
 
