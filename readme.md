@@ -6,6 +6,11 @@
 <p align="center"><em>A Symbolic Benchmark for Verifiable Chain-of-Thought
 Financial Reasoning</em></p>
 
+<a href='https://arxiv.org/abs/2506.02515'><img src='https://img.shields.io/badge/paper-Paper(v1)-red'></a> &nbsp;
+<a href='https://mbzuai-nlp.github.io/finchain/'><img src='https://img.shields.io/badge/project-Page-green'></a> &nbsp;
+<a href='https://mbzuai-nlp.github.io/finchain/leaderboard.html'><img src='https://img.shields.io/badge/leaderboard-Page-blue'></a> &nbsp;
+<a href='https://huggingface.co/spaces/Usmansafder/finchain-space'><img src='https://img.shields.io/badge/demo-Spaces-yellow'></a> &nbsp;
+
 ---
 
 ## 🔍 Overview
