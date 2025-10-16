@@ -147,7 +147,6 @@
     </style>
 </head>
 <body>
-
     <div class="dashboard-container">
         
         <header class="dashboard-header">
@@ -171,6 +170,25 @@
         </div>
 
         <div class="main-content">
+            <h3 class="table-header">Model Scores</h3>
+            <div id="table-view">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Model</th>
+                            <th>Size</th>
+                            <th>ChainEval ↑</th>
+                            <th>ROUGE R₂ ↑</th>
+                            <th>ROUGE Rₗ ↑</th>
+                            <th>BERTScore ↑</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        </tbody>
+                </table>
+            </div>
+
             <div id="chart-view">
                 <div class="chart-controls">
                     <div class="chart-control-group">
@@ -192,25 +210,6 @@
                     <canvas id="leaderboard-chart"></canvas>
                 </div>
             </div>
-            
-            <h3 class="table-header">Model Scores</h3>
-            <div id="table-view">
-                <table class="leaderboard-table">
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Model</th>
-                            <th>Size</th>
-                            <th>ChainEval ↑</th>
-                            <th>ROUGE R₂ ↑</th>
-                            <th>ROUGE Rₗ ↑</th>
-                            <th>BERTScore ↑</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leaderboard-body">
-                        </tbody>
-                </table>
-            </div>
         </div>
     </div>
 
@@ -224,4 +223,5 @@
     <script src="dashboard_chart.js"></script>
 
 </body>
+
 </html>
